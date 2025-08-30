@@ -41,6 +41,7 @@ IPv4 now charged separately (as of 2024) except free tier.
 Fully managed container image registry.
 Stores, manages, and deploys Docker & OCI images.
 Works seamlessly with ECS, EKS, and Fargate.
+
 ✅ Key Features
 Private & Public Repositories – host images securely or share publicly.
 IAM Integration – permissions controlled via IAM.
@@ -49,11 +50,13 @@ Lifecycle Policies – automatically remove old/unused images.
 Encryption – images encrypted at rest (KMS).
 Integration – push/pull directly from Docker CLI or CI/CD pipelines.
 Cross-region Replication – replicate images globally for low-latency.
+
 🛠 Use Cases
 Central repository for container images in AWS.
 Securely store application images for deployment on ECS/EKS.
 Automate CI/CD workflows (build in CodeBuild → store in ECR → deploy in ECS/EKS).
 Maintain compliance with vulnerability scanning.
+
 📌 Exam Tips
 ECR stores images, ECS/EKS run them.
 By default, private repository (only accessible with IAM policies).
@@ -61,17 +64,23 @@ Lifecycle policies help reduce cost by cleaning old images.
 Can integrate with CodePipeline for CI/CD deployments.
 Authentication is done using aws ecr get-login-password.
 Public ECR works like DockerHub but is AWS-managed.
+
 🌍 Real-World Example
 Imagine you are building a microservices-based e-commerce app.
 Your CI/CD pipeline (CodePipeline + CodeBuild) builds Docker images for each microservice.
 These images are pushed to ECR.
 Then ECS/EKS pulls them to run in production.
  This ensures your app always runs the latest, tested version.
+
+
+
+
 🔹 Amazon ECS (Elastic Container Service)
 📖 What it is:
 A fully managed container orchestration service by AWS.
 Lets you run and scale Docker containers without needing to install/manage Kubernetes yourself.
 Can run containers on EC2 instances or Fargate (serverless compute for containers).
+
 ✅ Key Features
 Launch Types:
 EC2 Launch Type → You manage the cluster of EC2 instances where containers run.
@@ -84,11 +93,13 @@ Integration: Works with ECR, CloudWatch, ALB/NLB, IAM roles.
 Auto Scaling: Automatically scale containers up/down based on demand.
 Networking: Uses VPC, ENIs, and Security Groups to isolate containers.
 Logging: Integrated with CloudWatch Logs.
+
 🛠 Use Cases
 Run microservices architectures.
 Deploy event-driven applications.
 Batch processing workloads in containers.
 Run containerized legacy apps on AWS without needing full Kubernetes.
+
 📌 Exam Tips
 ECS vs EKS:
 ECS = AWS-native container orchestration.
@@ -99,6 +110,7 @@ EC2 = You manage underlying servers.
 Task Roles – Assign IAM roles at task level (principle of least privilege).
 Load Balancing – Use Application Load Balancer (ALB) to route traffic to ECS tasks.
 ECS + ECR often appear together (ECR for storing images, ECS for running them).
+
 🌍 Real-World Example
 Suppose you are building a ride-sharing app with multiple microservices:
 User Service, Booking Service, Payment Service – each packaged as a Docker container.
@@ -107,10 +119,12 @@ With ECS Fargate, you deploy all services without worrying about servers.
 An Application Load Balancer routes traffic (e.g., /payments → Payment Service).
 ECS scales up containers automatically when demand increases (e.g., rush hours).
 🔹 Amazon EKS (Elastic Kubernetes Service)
+
 📖 What it is:
 A managed Kubernetes service on AWS.
 Lets you run Kubernetes (K8s) clusters without managing the control plane.
 Compatible with standard Kubernetes, so you can migrate workloads easily.
+
 ✅ Key Features
 Managed Control Plane – AWS manages Kubernetes masters, etcd, and API servers.
 Worker Nodes – Can run on EC2 or Fargate.
@@ -119,11 +133,13 @@ EKS Blueprints – Prebuilt architectures for faster setup.
 Integrations: Works with IAM (for RBAC), CloudWatch, ALB Ingress Controller, App Mesh.
 Networking – Uses VPC CNI Plugin for Kubernetes pods to get native VPC networking (each pod gets its own IP).
 Scalability – Supports auto-scaling of worker nodes & pods.
+
 🛠 Use Cases
 Run cloud-native microservices using Kubernetes.
 Hybrid cloud workloads (same K8s setup on AWS + on-prem).
 Migration from self-managed Kubernetes clusters to AWS.
 ML workloads orchestrated with Kubernetes frameworks (Kubeflow).
+
 📌 Exam Tips
 ECS vs EKS:
 ECS → AWS-native, simpler, less overhead.
@@ -133,6 +149,7 @@ IAM + RBAC: EKS integrates IAM users/roles with Kubernetes RBAC.
 Pod Networking: VPC CNI → each pod gets an IP in your VPC.
 Ingress: ALB Ingress Controller used to expose Kubernetes services externally.
 Storage: Pods can use EBS, EFS, or FSx as persistent volumes.
+
 🌍 Real-World Example
 Imagine a fintech startup running workloads both on-prem and cloud:
 They use EKS Anywhere to run Kubernetes clusters in their on-prem datacenter.
@@ -140,11 +157,16 @@ As traffic grows, they migrate workloads to AWS EKS on EC2 for scalability.
 Their microservices (payments, fraud detection, analytics) run on Kubernetes.
 An ALB Ingress Controller routes traffic from users to pods.
 Developers use the same Kubernetes tooling (kubectl, Helm) on both on-prem and AWS.
+
+
+
+
 🔹 AWS Lambda
 📖 What it is:
 A serverless compute service.
 Run code without managing servers.
 Pay only for execution time (per request + execution duration).
+
 ✅ Key Features
 Event-driven – Triggered by events (S3 upload, DynamoDB stream, API Gateway call, CloudWatch event, etc.).
 Languages supported – Node.js, Python, Java, Go, .NET, Ruby, and custom runtimes via container images.
@@ -154,12 +176,14 @@ Memory/CPU – Configure memory (128 MB → 10 GB), CPU scales with memory.
 Ephemeral storage – 512 MB /tmp space by default (configurable up to 10 GB).
 Concurrency – Reserved Concurrency (limit executions), Provisioned Concurrency (reduce cold starts).
 Networking – Can run inside VPC to access private resources.
+
 🛠 Use Cases
 Process files uploaded to S3 (e.g., resize images, generate thumbnails).
 Run serverless APIs with API Gateway + Lambda.
 Real-time stream processing (Kinesis, DynamoDB Streams).
 Automate admin tasks (CloudWatch event triggers).
 Backend for mobile/web apps.
+
 📌 Exam Tips
 Pricing: Pay per request + duration (rounded to nearest ms).
 Cold Starts: First invocation is slower (provisioned concurrency fixes this).
@@ -168,17 +192,24 @@ Lambda@Edge: Run Lambda at CloudFront edge locations for low-latency processing.
 Integrations: Very important – Lambda integrates tightly with S3, DynamoDB, API Gateway, CloudWatch, SNS, SQS.
 IAM Role: Each Lambda function gets an execution role to access AWS resources.
 Deployment Package: Can use .zip or container image (up to 10 GB).
+
 🌍 Real-World Example
 A news media company allows users to upload profile photos.
 When a photo is uploaded to S3, it triggers a Lambda function.
 Lambda automatically resizes the image into multiple formats (thumbnail, medium, large).
 The processed images are stored back in S3 and served via CloudFront.
  👉 No servers needed, scales automatically, and costs only when images are uploaded.
+
+
+
+
+
 🔹 Amazon Lightsail
 📖 What it is:
 A simplified VPS (Virtual Private Server) service by AWS.
 Provides an easy way to launch and manage small applications, websites, or databases.
 Designed for developers who want simplicity over flexibility.
+
 ✅ Key Features
 Preconfigured VPS – Choose from Linux/Windows instances with apps like WordPress, Joomla, LAMP stack.
 Predictable Pricing – Fixed monthly pricing (bundled compute, storage, bandwidth).
@@ -187,27 +218,36 @@ Databases – Managed MySQL/PostgreSQL databases available.
 Scaling – Not as scalable as EC2, but you can transition workloads from Lightsail → EC2/VPC if needed.
 Integration – Can connect with other AWS services (like S3, CloudFront, Route 53).
 Snapshots – Easy backup and restore of servers and databases.
+
 🛠 Use Cases
 Hosting simple websites or blogs.
 Running small business applications.
 Quick prototypes or development environments.
 Learning AWS basics without heavy complexity.
+
 📌 Exam Tips
 Lightsail = Simpler alternative to EC2 (limited flexibility).
 Best choice when exam question asks for “easy setup, predictable cost, no deep AWS knowledge required.”
 Comes with bundled networking & DNS (so you don’t need to configure VPC, security groups manually).
 Can migrate to EC2 for advanced scaling.
 Has blueprint images (WordPress, Node.js, etc.) for one-click app deployment.
+
 🌍 Real-World Example
 A freelance developer wants to set up a personal portfolio website quickly.
 Instead of configuring EC2, VPC, and security groups, they launch a WordPress instance on Lightsail.
 The website is live within minutes, with a fixed monthly bill (e.g., $5/month).
 Later, if traffic grows, they can migrate it to EC2 for scalability.
+
+
+
+
+
 🔹 AWS Elastic Beanstalk
 📖 What it is:
 A Platform as a Service (PaaS) on AWS.
 Lets you deploy, manage, and scale applications without worrying about infrastructure.
 Supports multiple programming languages and frameworks.
+
 ✅ Key Features
 Supported Platforms: Java, .NET, Node.js, PHP, Python, Ruby, Go, Docker.
 Full Stack Management: Handles provisioning of EC2, ELB, Auto Scaling, RDS, S3, CloudWatch.
@@ -219,11 +259,13 @@ Customization:
 Configuration files (.ebextensions) for advanced setup.
 You still have access to the underlying AWS resources.
 Monitoring: Integrated with CloudWatch and X-Ray.
+
 🛠 Use Cases
 Deploying web applications quickly without managing infrastructure.
 Hosting REST APIs or backend services.
 Running background worker processes.
 Prototyping applications with minimal DevOps overhead.
+
 📌 Exam Tips
 Beanstalk vs Lambda:
 Beanstalk → Long-running apps, more control, uses EC2.
@@ -238,17 +280,24 @@ Deployment Strategies:
 All-at-once → Fast, but downtime.
 Rolling → Gradual, some capacity reduced.
 Immutable → Safest, creates new instances before switching traffic.
+
 🌍 Real-World Example
 A startup building a food delivery app wants to deploy a Node.js API backend.
 Developers push code to Beanstalk.
 Beanstalk automatically launches EC2 instances, configures load balancing, scaling, and monitoring.
 They don’t manage servers directly, just code.
 As orders increase, Beanstalk auto-scales EC2 instances to handle traffic.
+
+
+
+
+
 🔹 AWS Batch
 📖 What it is:
 A fully managed batch processing service.
 Runs hundreds to thousands of batch computing jobs efficiently on AWS.
 Dynamically provisions the right compute (EC2 or Spot) based on job needs.
+
 ✅ Key Features
 Job Queues – Submit jobs to a queue, AWS Batch schedules them.
 Job Definitions – Define how a job should run (Docker image, vCPUs, memory, IAM role).
@@ -259,12 +308,14 @@ Priority Scheduling – Multiple queues with priority levels.
 Container-based – Each batch job runs as a container (ECS under the hood).
 Integration – Works with CloudWatch (monitoring), IAM, and Spot Instances (to reduce cost).
 Scaling – Scales compute up/down depending on the workload automatically.
+
 🛠 Use Cases
 Genomic sequencing (life sciences).
 Financial simulations & risk modeling.
 Media rendering (video encoding, 3D rendering).
 Machine learning model training.
 Large-scale data processing pipelines.
+
 📌 Exam Tips
 AWS Batch = for batch jobs (don’t confuse with Lambda which is event-driven).
 Runs containers on ECS or Fargate, you don’t manage servers.
@@ -274,6 +325,7 @@ Good choice in exams when scenario says:
 “Run compute-intensive workloads at scale.”
 “Jobs can be scheduled and run as resources become available.”
 Unlike Lambda, Batch is designed for long-running workloads (not limited to 15 min).
+
 🌍 Real-World Example
 A movie studio needs to render thousands of animation frames for a new film.
 They submit render jobs to AWS Batch.
@@ -281,10 +333,16 @@ AWS Batch provisions a fleet of Spot EC2 instances automatically.
 Each job (frame) runs as a containerized workload.
 Once rendering is done, the compute resources scale down.
  👉 The studio saves costs and avoids managing large rendering clusters.
+
+
+
+
+
 🔹 Amazon S3 (Simple Storage Service)
 📖 What it is:
 Object storage service for any type of data.
 Highly durable (11 9’s), scalable, and secure.
+
 ✅ Key Features
 Buckets & Objects – Organize files in buckets.
 Storage Classes – Standard, IA (Infrequent Access), One Zone-IA, Glacier, Glacier Deep Archive.
@@ -293,28 +351,43 @@ Lifecycle Rules – Transition objects to cheaper storage automatically.
 Cross-Region Replication (CRR) – Sync data across regions.
 Encryption – SSE-S3, SSE-KMS, SSE-C (customer-managed keys).
 Event Notifications – Trigger Lambda/SNS/SQS on object events.
+
 📌 Exam Tips
 S3 = Object storage, not block or file.
 Max object size = 5 TB.
 Strong read-after-write consistency.
 Use Pre-Signed URLs to share objects securely.
 MFA Delete for extra protection.
+
 🌍 Example
 A social media platform stores user-uploaded photos & videos in S3, uses CloudFront for CDN, and lifecycle rules to archive old files to Glacier.
+
+
+
+
+
 🔹 Amazon S3 Glacier & Glacier Deep Archive
 📖 What it is:
 Archival storage with very low cost.
 Used for infrequently accessed or compliance data.
+
 ✅ Key Features
 Glacier → Retrieval in minutes to hours.
 Deep Archive → Cheapest, retrieval can take up to 12–48 hours.
-Integrated with S3 lifecycle policies.
+Integrated with S3 lifecycle policies. 
+
 📌 Exam Tips
 If exam mentions “cheapest storage, not frequently accessed” → Glacier.
 Retrieval tiers: Expedited, Standard, Bulk.
 Deep Archive = lowest cost, longest retrieval time.
+
 🌍 Example
 A hospital stores patient X-ray images in Glacier Deep Archive for 10+ years to meet compliance requirements.
+
+
+
+
+
 🔹 Amazon EBS (Elastic Block Store)
 📖 What it is:
 Block storage for EC2 instances.
