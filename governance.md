@@ -7,7 +7,7 @@ A detailed and exam-focused breakdown of AWS Management & Governance services.
 ## 🔹 AWS Organizations
 
 AWS Organizations helps manage multiple AWS accounts centrally.
-
+ 
 It enables governance, billing control, and policy enforcement across accounts.
 
 ---
