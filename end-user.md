@@ -9,7 +9,7 @@ A detailed and exam-focused breakdown of AWS End User Computing services.
 Amazon WorkSpaces is a fully managed Desktop-as-a-Service (DaaS).
 
 It provides virtual cloud-based desktops to users.
-
+ 
 ---
 
 ### 🖥 Key Features
