@@ -15,7 +15,7 @@ It defines **who can access what**.
 ### 🏗 Core Components
 
 - **Users** → Individual identities
-- **Groups** → Collection of users
+- **Groups** → Collection of users 
 - **Roles** → Temporary credentials for services/users
 - **Policies** → JSON documents defining permissions
 
