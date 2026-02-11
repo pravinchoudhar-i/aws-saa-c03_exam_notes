@@ -6,7 +6,7 @@ A detailed and exam-focused breakdown of AWS Networking services.
 
 ## 🔹 Amazon VPC (Virtual Private Cloud)
 
-Amazon VPC is a logically isolated virtual network in AWS.
+Amazon VPC is a logically isolated virtual network in AWS. 
 
 It allows you to control:
 
