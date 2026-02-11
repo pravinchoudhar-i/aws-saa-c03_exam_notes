@@ -7,7 +7,7 @@ A detailed and exam-focused breakdown of AWS Application Integration services.
 ## 🔹 Amazon SQS (Simple Queue Service)
 
 Amazon SQS is a fully managed message queuing service.
-
+ 
 It decouples and scales microservices, distributed systems, and serverless applications.
 
 ---
