@@ -8,7 +8,7 @@ A detailed and exam-focused breakdown of AWS Analytics services.
 
 Amazon Athena is a serverless interactive query service.
 
-It allows you to run SQL queries directly on data stored in S3.
+It allows you to run SQL queries directly on data stored in S3. 
 
 ---
 
