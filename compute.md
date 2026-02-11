@@ -4,7 +4,7 @@ A detailed and exam-focused breakdown of AWS Compute services.
 
 ---
 
-## 🔹 Amazon EC2 (Elastic Compute Cloud)
+## 🔹 Amazon EC2 (Elastic Compute Cloud) 
 
 Amazon EC2 provides resizable virtual servers in the cloud.
 
