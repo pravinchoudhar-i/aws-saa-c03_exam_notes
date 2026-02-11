@@ -4,7 +4,7 @@ A detailed and exam-focused breakdown of AWS Database services.
 
 ---
 
-## 🔹 Amazon RDS (Relational Database Service)
+## 🔹 Amazon RDS (Relational Database Service) 
 
 Amazon RDS is a managed relational database service.
 
