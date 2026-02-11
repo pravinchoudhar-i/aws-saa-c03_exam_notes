@@ -16,7 +16,7 @@ Glacier / S3 Glacier Deep Archive – Low-cost archival storage.
 EBS – Block storage for EC2 instances.
 EFS – Scalable file storage (NFS).
 Storage Gateway – Hybrid storage linking on-prem with AWS.
-FSx – Managed file systems (Windows FS, Lustre).
+FSx – Managed file systems (Windows FS, Lustre)
 
 3. Databases
 RDS – Managed relational databases (MySQL, PostgreSQL, Oracle, SQL Server, MariaDB, Aurora).
