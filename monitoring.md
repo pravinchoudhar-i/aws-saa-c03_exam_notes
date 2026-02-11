@@ -12,7 +12,7 @@ It collects and tracks metrics, logs, and events from AWS resources.
 
 ---
 
-### 📈 Core Capabilities
+### 📈 Core Capabilities 
 
 - Metrics collection (CPU, memory, network, etc.)
 - Log monitoring (CloudWatch Logs)
