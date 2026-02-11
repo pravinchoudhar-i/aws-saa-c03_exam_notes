@@ -9,7 +9,7 @@ A detailed and exam-focused breakdown of AWS Storage services.
 Amazon S3 is a scalable object storage service.
 
 It is designed for durability, availability, and virtually unlimited storage.
-
+ 
 ---
 
 ### 🏗 Core Concepts
