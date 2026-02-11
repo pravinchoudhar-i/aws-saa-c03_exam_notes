@@ -9,7 +9,7 @@ A detailed and exam-focused breakdown of AWS Hybrid & Edge services.
 AWS Outposts brings native AWS infrastructure and services to on-premises data centers.
 
 It allows you to run AWS services locally while remaining connected to AWS regions.
-
+ 
 ---
 
 ### 🏗 Key Characteristics
